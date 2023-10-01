@@ -7,6 +7,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class ProductService {
 
@@ -14,8 +18,20 @@ public class ProductService {
     ProductRepository productRepository;
 
     public Product save(ProductDTO productDTO){
-        var productModel = new Product();
-        BeanUtils.copyProperties(productDTO, productModel);
-        return productRepository.save(productModel);
+        var product = new Product();
+        BeanUtils.copyProperties(productDTO, product);
+        return productRepository.save(product);
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public Optional<Product> getProductById(UUID id) {
+        return productRepository.findById(id);
+    }
+
+    public void deleteById(UUID id) {
+        productRepository.deleteById(id);
     }
 }

@@ -7,9 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
-
 @Builder
-public record ProductDTO(@NotBlank String name,@NotNull BigDecimal price) {
-
+public record ClientDTO(@NotBlank String name, @NotNull String cpf) {
 }
