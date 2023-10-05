@@ -1,4 +1,4 @@
-package com.patricksoftwarestar.star.service;
+package com.patricksoftwarestar.star.service.registration;
 
 import com.patricksoftwarestar.star.dto.ProductDTO;
 import com.patricksoftwarestar.star.model.Product;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ProductService {
+public class ProductService extends RegistrationService{
 
     @Autowired
     ProductRepository productRepository;

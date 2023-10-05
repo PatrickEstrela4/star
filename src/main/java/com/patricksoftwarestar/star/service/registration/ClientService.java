@@ -1,5 +1,6 @@
-package com.patricksoftwarestar.star.service;
+package com.patricksoftwarestar.star.service.registration;
 
+import com.patricksoftwarestar.star.dto.ClientDTO;
 import com.patricksoftwarestar.star.model.Client;
 import com.patricksoftwarestar.star.repository.ClientRepository;
 import jakarta.validation.Valid;
@@ -12,26 +13,30 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ClientService {
+public class ClientService extends RegistrationService{
 
     @Autowired
     ClientRepository clientRepository;
 
-    public Client save(@Valid Client clientDTO){
+    public Client save(@Valid ClientDTO clientDTO){
         var client = new Client();
         BeanUtils.copyProperties(clientDTO, client);
         return clientRepository.save(client);
     }
 
-    public List<Client> getAllProducts() {
+    public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
 
-    public Optional<Client> getProductById(UUID id) {
+    public Optional<Client> getClientById(UUID id) {
         return clientRepository.findById(id);
     }
 
     public void deleteById(UUID id) {
         clientRepository.deleteById(id);
+    }
+
+    public void deleteAll(){
+        clientRepository.deleteAll();
     }
 }

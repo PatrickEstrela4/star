@@ -2,7 +2,7 @@ package com.patricksoftwarestar.star.controller;
 
 import com.patricksoftwarestar.star.dto.ProductDTO;
 import com.patricksoftwarestar.star.model.Product;
-import com.patricksoftwarestar.star.service.ProductService;
+import com.patricksoftwarestar.star.service.registration.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
